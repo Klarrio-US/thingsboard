@@ -41,6 +41,8 @@ import java.util.Optional;
 @Slf4j
 public class ServerSideRpcCallAction extends SimpleRuleLifecycleComponent implements PluginAction<ServerSideRpcCallActionConfiguration> {
 
+    private static final String DEVICE_ID = "deviceId";
+
     private ServerSideRpcCallActionConfiguration configuration;
     private Optional<Template> deviceIdTemplate;
     private Optional<Template> fromDeviceRelationTemplate;
@@ -67,7 +69,9 @@ public class ServerSideRpcCallAction extends SimpleRuleLifecycleComponent implem
     public Optional<RuleToPluginMsg> convert(RuleContext ctx, ToDeviceActorMsg toDeviceActorMsg, RuleProcessingMetaData metadata) {
         String sendFlag = configuration.getSendFlag();
         if (StringUtils.isEmpty(sendFlag) || (Boolean) metadata.get(sendFlag).orElse(Boolean.FALSE)) {
+
             VelocityContext context = VelocityUtils.createContext(metadata);
+            context.put(DEVICE_ID, ctx.getDeviceMetaData().getDeviceId());
 
             ServerSideRpcCallActionMsg.ServerSideRpcCallActionMsgBuilder builder = ServerSideRpcCallActionMsg.builder();
 
