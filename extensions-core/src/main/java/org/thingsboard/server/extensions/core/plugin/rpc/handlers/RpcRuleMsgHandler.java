@@ -66,7 +66,7 @@ public class RpcRuleMsgHandler implements RuleMsgHandler {
                         List<EntityRelation> relations = ctx.findByFromAndType(deviceId, msg.getFromDeviceRelation()).get();
                         deviceIds = relations.stream().map(EntityRelation::getTo).collect(Collectors.toList());
                     } else {
-                        List<EntityRelation> relations = ctx.findByToAndType(deviceId, msg.getFromDeviceRelation()).get();
+                        List<EntityRelation> relations = ctx.findByToAndType(deviceId, msg.getToDeviceRelation()).get();
                         deviceIds = relations.stream().map(EntityRelation::getFrom).collect(Collectors.toList());
                     }
                     ToDeviceRpcRequestBody body = new ToDeviceRpcRequestBody(msg.getRpcCallMethod(), msg.getRpcCallBody());
