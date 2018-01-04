@@ -28,7 +28,7 @@ const express = require('express');
 const http = require('http');
 const httpProxy = require('http-proxy');
 const forwardHost = 'localhost';
-const forwardPort = 8080;
+const forwardPort = 8085;
 
 const app = express();
 const server = http.createServer(app);
@@ -38,7 +38,13 @@ const PORT = 3000;
 const compiler = webpack(config);
 
 app.use(historyApiFallback());
-app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath}));
+app.use(webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: config.output.publicPath,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000
+    }}));
 app.use(webpackHotMiddleware(compiler));
 
 const root = path.join(__dirname, '/src');
