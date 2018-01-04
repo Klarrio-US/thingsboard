@@ -18,7 +18,7 @@ import $ from 'jquery';
 
 /* eslint-disable import/no-unresolved, import/default */
 
-import logoSvg from '../../svg/logo_title_white.svg';
+//import logoSvg from '../../svg/logo_title_white.svg';
 
 /* eslint-enable import/no-unresolved, import/default */
 
@@ -34,6 +34,7 @@ export default function HomeController(types, loginService, userService, deviceS
 
     vm.Fullscreen = Fullscreen;
     vm.logoSvg = logoSvg;
+    vm.logoSvg = 'http://www.klarrio.com/wp-content/uploads/2017/04/klarrio.png';
 
     if (angular.isUndefined($rootScope.searchConfig)) {
         $rootScope.searchConfig = {
