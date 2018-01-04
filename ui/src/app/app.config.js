@@ -155,7 +155,8 @@ export default function AppConfig($provide,
 
     function configureTheme() {
 
-        var theme = 'indigo';
+        //var theme = 'indigo';
+        var theme = 'blueGray';
 
         if (theme === 'blueGray') {
             blueGrayTheme();

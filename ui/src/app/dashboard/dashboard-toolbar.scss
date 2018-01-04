@@ -32,7 +32,7 @@ tb-dashboard-toolbar {
             opacity: 1;
             @include transition(opacity .3s cubic-bezier(.55,0,.55,.2));
             .md-fab-toolbar-background {
-                background-color: $primary-default !important;
+                background-color: $primary-default;
             }
           }
         }
