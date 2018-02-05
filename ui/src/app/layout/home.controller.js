@@ -33,7 +33,7 @@ export default function HomeController(types, loginService, userService, deviceS
     var vm = this;
 
     vm.Fullscreen = Fullscreen;
-    vm.logoSvg = logoSvg;
+    //vm.logoSvg = logoSvg;
     vm.logoSvg = 'http://www.klarrio.com/wp-content/uploads/2017/04/klarrio.png';
 
     if (angular.isUndefined($rootScope.searchConfig)) {
