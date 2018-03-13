@@ -282,7 +282,7 @@ function RoundSwitchController($element, $scope, utils, types) {
             vm.executingUpdateValue = true;
         }
         vm.error = '';
-        vm.ctx.controlApi.sendOneWayCommand(vm.setValueMethod, vm.convertValueFunction(value), vm.requestTimeout).then(
+        vm.ctx.controlApi.sendTwoWayCommand(vm.setValueMethod, vm.convertValueFunction(value), vm.requestTimeout).then(
             () => {
                 vm.executingUpdateValue = false;
                 if (vm.scheduledValue != null && vm.scheduledValue != vm.rpcValue) {
